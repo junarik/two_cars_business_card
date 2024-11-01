@@ -1,24 +1,36 @@
-<div class="relative w-full h-screen overflow-hidden pt-0">
-
-  <video
-    class="absolute top-0 left-0 w-full h-full object-cover"
-    autoplay
-    muted
-    loop
+<div class="relative w-full min-h-[300px] sm:min-h-[400px] md:min-h-[500px] lg:min-h-[600px] xl:min-h-[700px]">
+  <video 
+    class="absolute top-0 left-0 w-full h-full object-cover" 
+    autoplay 
+    loop 
+    muted 
+    playsinline
   >
-    <source src="assets/videos/Audi_hero_section.mp4" type="video/mp4" />
+    <source src="assets/videos/Audi_hero_section.mp4" type="video/mp4">
   </video>
 
-  <div class="relative z-10 flex flex-col items-center justify-center h-full text-white px-4 bg-black bg-opacity-50">
-    <div class="max-w-3xl text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6 uppercase">
-        Доставка авто з Європи та Америки
+  <div class="absolute inset-0 flex items-center justify-center">
+    <div class="relative z-10 flex flex-col items-center justify-center text-white text-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-24 font-['Ubuntu'] max-w-4xl mx-auto">
+      <h1 class="text-[12px] sm:text-[14px] md:text-[24px] lg:text-[30px] font-bold uppercase">
+        ДОСТАВКА АВТО З ЄВРОПИ, АМЕРИКИ ТА КАНАДИ
       </h1>
-      <div class="absolute -bottom-4 sm:-bottom-5 md:-bottom-6 lg:-bottom-7 left-1/2 -translate-x-1/2 w-32 sm:w-52 md:w-72 lg:w-80 h-1 bg-gradient-to-r from-black via-[#3EF8F5] to-black"></div>
-      <p class="text-lg md:text-xl mb-8">
-          Ваш автомобіль з-за кордону — це більше, ніж просто транспортний засіб. Це ваш стиль життя та емоції, і ми зробимо все можливе, щоб його доставка була швидкою та безтурботною.
-          Зроби перший крок до покупки омріяного, залишай заявку і наші експерти зв'яжуться з тобою.
+      
+      <div class="mt-2 w-24 sm:w-32 md:w-40 lg:w-48 h-1 bg-gradient-to-r from-black via-[#3EF8F5] to-black"></div>
+      
+      <p class="text-[10px] sm:text-[14px] md:text-[16px] lg:text-[20px] max-w-[90%] my-4">
+        Ваш автомобіль з-за кордону — це більше, ніж просто транспортний засіб. 
+        Це ваш стиль життя та емоції, і ми зробимо все можливе, щоб його доставка 
+        була швидкою та безтурботною. Зроби перший крок до покупки омріяного, 
+        залишай заявку і наші експерти зв'яжуться з тобою.
       </p>
+      
+      <button class="border-2 border-[#3EF8F5] text-[#3EF8F5] font-bold 
+        py-1 sm:py-2 px-3 sm:px-4 rounded-full 
+        text-[12px] sm:text-[16px] 
+        hover:bg-[#3EF8F5] hover:text-black 
+        transition-colors duration-300">
+        Подати заявку
+      </button>
     </div>
   </div>
 </div>
