@@ -1,0 +1,22 @@
+<section class="bg-slate-400 p-12">
+  <div id="second-slider-carousel" class="splide h-32">
+    <div class="splide__track">
+      <div class="splide__list">
+        @for(item of items; track $index) {
+        <div class="splide__slide bg-slate-900">
+          {{ item }}
+        </div>
+        } @empty {
+        <span>There are no items.</span>
+        }
+      </div>
+      <!--Arrows-->
+      <div class="splide__arrows">
+        <button class="splide__arrow splide__arrow--prev"></button>
+        <button class="splide__arrow splide__arrow--next"></button>
+      </div>
+    </div>
+    <!--Pagination-->
+    <div class="splide__pagination splide__pagination--bottom space-x-3"></div>
+  </div>
+</section>

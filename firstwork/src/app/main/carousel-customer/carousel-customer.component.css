@@ -1,0 +1,29 @@
+.pagination-bullet {
+  width: 24px; /* Визначте ширину для всіх кнопок */
+}
+
+.active{
+  border-color: #3ef8f5;
+  width: 48px;
+  cursor: default;
+  opacity: 100%;
+  filter: drop-shadow(0 0 2px #3ef8f5);
+}
+
+@media (min-width: 640px) {
+  .pagination-bullet {
+    width: 40px; /* Визначте ширину для всіх кнопок */
+  }
+
+  .active{
+    width: 80px;
+  }
+}
+
+.betterSVG{
+  filter: drop-shadow(16px 16px 20px red) invert(75%);
+}
+
+.icon:hover {
+  filter: drop-shadow(0 0 2px #3ef8f5);
+}

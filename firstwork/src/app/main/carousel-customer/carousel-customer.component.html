@@ -1,0 +1,91 @@
+<section class="bg-[#272727] py-16">
+  <div id="default-slider" class="splide container mx-auto">
+    <div class="splide__track">
+      <ul class="splide__list">
+        @for (item of items; track item) {
+        <li
+          class="splide__slide flex flex-col justify-center items-center rounded-[4px]"
+        >
+          <div class="w-6/12 h-[400px] mb-6">
+            <app-single-media-player [isActive]="$index === activeIndex">
+            </app-single-media-player>
+          </div>
+          <span class="font-bold text-2xl text-white">BMW X5 Super Car</span>
+        </li>
+        } @empty { Поки що немає жодного відгуку }
+      </ul>
+    </div>
+    <!--Arrows-->
+    <div
+      class="absolute flex flex-row justify-between left-1/2 -translate-x-1/2 w-[84%] sm:w-[75%] top-1/2 transform"
+    >
+      <button
+        (click)="prevSlide()"
+        class="absolute left-[0px] -translate-y-1/2 text-white transition-all opacity-[85%] hover:opacity-[100%] hover:scale-110 hover:text-[#3ef8f5]"
+      >
+        <svg
+          class="icon"
+          width="44px"
+          height="44px"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+          transform="matrix(-1, 0, 0, 1, 0, 0)"
+        >
+          <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+          <g
+            id="SVGRepo_tracerCarrier"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+
+          <g id="SVGRepo_iconCarrier">
+            <path
+              opacity="1"
+              d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+              fill="currentColor"
+            />
+            <path
+              d="M16.03 11.4699L13.03 8.46994C12.74 8.17994 12.26 8.17994 11.97 8.46994C11.68 8.75994 11.68 9.23994 11.97 9.52994L13.69 11.2499H8.5C8.09 11.2499 7.75 11.5899 7.75 11.9999C7.75 12.4099 8.09 12.7499 8.5 12.7499H13.69L11.97 14.4699C11.68 14.7599 11.68 15.2399 11.97 15.5299C12.12 15.6799 12.31 15.7499 12.5 15.7499C12.69 15.7499 12.88 15.6799 13.03 15.5299L16.03 12.5299C16.32 12.2399 16.32 11.7599 16.03 11.4699Z"
+              fill="black"
+            />
+          </g>
+        </svg>
+      </button>
+      <button
+        (click)="nextSlide()"
+        class="absolute right-[0px] -translate-y-1/2 text-white transition-all opacity-[85%] hover:opacity-[100%] hover:scale-110 hover:text-[#3ef8f5]"
+      >
+        <svg
+          class="icon"
+          width="44px"
+          height="44px"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            opacity="1"
+            d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+            fill="currentColor"
+          />
+          <path
+            d="M16.03 11.4699L13.03 8.46994C12.74 8.17994 12.26 8.17994 11.97 8.46994C11.68 8.75994 11.68 9.23994 11.97 9.52994L13.69 11.2499H8.5C8.09 11.2499 7.75 11.5899 7.75 11.9999C7.75 12.4099 8.09 12.7499 8.5 12.7499H13.69L11.97 14.4699C11.68 14.7599 11.68 15.2399 11.97 15.5299C12.12 15.6799 12.31 15.7499 12.5 15.7499C12.69 15.7499 12.88 15.6799 13.03 15.5299L16.03 12.5299C16.32 12.2399 16.32 11.7599 16.03 11.4699Z"
+            fill="black"
+          />
+        </svg>
+      </button>
+    </div>
+    <!--Pagination-->
+    <div class="space-x-2  sm:space-x-3 flex justify-center mt-[36px] mx-4 sm:mx-0">
+      @for(item of items; track item; let i = $index) {
+      <button
+        (click)="goToSlide(i)"
+        [ngClass]="{ active: currentSlide === i }"
+        class="pagination-bullet bg-portGore-50 border-[#D8FEFD] border-[2px] rounded-sm transition-all opacity-[85%] hover:opacity-[100%] hover:border-[#89FBF9]"
+      ></button>
+      }
+    </div>
+  </div>
+</section>
