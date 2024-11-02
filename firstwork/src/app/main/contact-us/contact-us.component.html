@@ -1,1 +1,48 @@
-<p>contact-us works!</p>
+<section class="bg-black">
+    <div class="container mx auto w-full h-[580px] bg-white  flex flex-col items-center justify-center">
+        <div class="flex flex-row gap-3 mx-auto">
+            <span class="text-5xl text-white font-extrabold">Залиште</span>
+            <span class="text-5xl text-[#3EF8F5] font-extrabold">заявку</span>
+        </div>
+        <h4 class="text-xl my-4 text-white">Залиште свої контактні дані
+            і ми безкоштвоно підберемо авто під ваші вимоги та бюджет
+        </h4>
+
+        <form class="flex flex-col w-1/3" [formGroup]="contactUsForm" (ngSubmit)="onSubmit()">
+            <label class="text-white" for="name">Ім'я</label>
+            <input class="w-full rounded-md py-3 px-4 my-2 text-gray-100 bg-gray-800 text-sm border border-cyan-500"
+                placeholder="Іван" id="name" type="text" formControlName="name">
+
+            <!-- Name field  -->
+            <div class="text-red-500" [@errorAnimation]
+                *ngIf="nameControl && nameControl.errors?.['required'] && (nameControl.touched || nameControl.dirty)">
+                Ім'я не може бути пустим
+            </div>
+            <div class="text-red-500" [@errorAnimation]
+                *ngIf="nameControl && (nameControl.errors?.['minlength'] || nameControl.errors?.['maxlength']) && (nameControl.touched || nameControl.dirty)">
+                Ім'я не може бути коротшим за 2 символи там довшим за 32
+            </div>
+
+            <!-- Phone number field  -->
+            <label class="text-white" for="phoneNumber">Номер телефону</label>
+            <input class="w-full rounded-md py-3 px-4 my-2 text-gray-100 bg-gray-800 text-sm border border-cyan-500"
+                placeholder="+380689999999" id="phoneNumber" type="text" formControlName="phoneNumber">
+
+            <div class="text-red-500" [@errorAnimation]
+                *ngIf="phoneControl && phoneControl.errors?.['required'] && (phoneControl.touched || phoneControl.dirty)">
+                Введіть номер телефону
+            </div>
+            <div class="text-red-500" [@errorAnimation]
+                *ngIf="phoneControl && phoneControl.errors?.['pattern'] && (!phoneControl.touched || phoneControl.dirty)">
+                Введіть валідний номер телефону (Наприклад: +380689999999)
+            </div>
+
+            <!-- Submit button  -->
+            <div class="mx-auto">
+                <button
+                    class="text-[#3EF8F5] hover:text-black font-semibold w-56 bg mt-4 h-10 border-2 border-cyan-500 rounded-full cursor-pointer hover:bg-cyan-500 transition-colors"
+                    type="submit" [disabled]="!contactUsForm.valid">Відправити</button>
+            </div>
+        </form>
+    </div>
+</section>
