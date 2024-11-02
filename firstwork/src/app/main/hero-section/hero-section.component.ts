@@ -1,28 +1,40 @@
-import { Component, Input} from '@angular/core';
-import { VgApiService } from '@videogular/ngx-videogular/core';
+import { Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-hero-section',
   templateUrl: './hero-section.component.html',
   styleUrls: ['./hero-section.component.css']
 })
-export class HeroSectionComponent {
-  @Input() isActive: boolean = false;
-  api!: VgApiService;
+export class HeroSectionComponent implements OnInit {
+  @ViewChild('videoElement') videoElement!: ElementRef<HTMLVideoElement>;
+  
+  isVideoLoaded = false;
+  videoSrc = 'assets/videos/Audi.mp4';
+  placeholderImage = 'assets/images/Audi1img.jpg';
 
-  onPlayerReady(source: VgApiService) {
-    this.api = source;
-
-    this.api.getDefaultMedia().subscriptions.loadedMetadata.subscribe(() => {
-      if (this.isActive) {
-        setTimeout(() => {
-          this.playVideo();
-        }, 0);
-      }
-    });
+  ngOnInit() {
+    // Попереднє завантаження відео
+    this.preloadVideo();
   }
 
-  playVideo() {
-    this.api?.getDefaultMedia().play();
+  private preloadVideo() {
+    const video = new Image();
+    video.src = this.videoSrc;
+    
+    // Створюємо окремий елемент відео для попереднього завантаження
+    const preloadVideo = document.createElement('video');
+    preloadVideo.src = this.videoSrc;
+    preloadVideo.load(); // Починаємо завантаження
+  }
+
+  onVideoCanPlay() {
+    // Невелика затримка перед показом відео для впевненості, що воно повністю готове
+    setTimeout(() => {
+      this.isVideoLoaded = true;
+      if (this.videoElement) {
+        this.videoElement.nativeElement.play()
+          .catch(error => console.log('Auto-play prevented:', error));
+      }
+    }, 100);
   }
 }
