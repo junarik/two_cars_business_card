@@ -1,6 +1,16 @@
-<section class="bg-[#272727] p-12 min-h-[720px]">
+<section class="bg-black p-12 min-h-[720px]">
   <div class="container mx-auto">
-    <div [@listAnimation]="displayedItems" class="grid relative grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+    <div class="flex justify-evenly pb-12 md:pb-16 items-center">
+      <div class="prettyLine w-48  md:w-72 h-[3px] rounded-[6px] bg-[#3ef8f5]"></div>
+      <span class="inline-block text-center text-wrap text-white text-3xl font-bold"
+        >ВИКУПЛЕНІ АВТО ДЛЯ НАШИХ КЛІЄНТІВ</span
+      >
+      <div class="prettyLine w-48 md:w-72 h-[3px] rounded-[6px] bg-[#3ef8f5]"></div>
+    </div>
+    <div
+      [@listAnimation]="displayedItems"
+      class="grid relative grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8"
+    >
       @for(item of displayedItems; track $index) {
       <div
         class="prettyCard relative group overflow-hidden w-full rounded-[2px] cursor-pointer p-6"
@@ -35,7 +45,7 @@
     <div class="flex flex-row justify-center mt-[40px]">
       <button
         (click)="handleButtonClick()"
-        class="bg-transparent border-[1px] rounded-full transition-all duration-[30ms]cursor-pointer hover:bg-[#3ef8f5] text-white px-[4rem] py-2  sm:px-[9rem] ease-linear sm:py-3"
+        class="bg-transparent border-[1px] rounded-full transition-all duration-[30ms]cursor-pointer hover:bg-[#3ef8f5] text-white px-[4rem] py-2 sm:px-[9rem] hover:text-black ease-linear sm:py-3"
       >
         <span class="text-2xl font-semibold"> Дивитись ще </span>
       </button>

@@ -1,4 +1,16 @@
 <section class="bg-[#272727] py-16">
+  <div class="flex justify-evenly pb-12 md:pb-16 items-center">
+    <div
+      class="prettyLine w-48 md:w-72 h-[3px] rounded-[6px] bg-[#3ef8f5]"
+    ></div>
+    <span
+      class="inline-block text-center text-wrap text-white text-3xl font-bold"
+      >ВІДГУКИ НАШИХ КЛІЄНТІВ</span
+    >
+    <div
+      class="prettyLine w-48 md:w-72 h-[3px] rounded-[6px] bg-[#3ef8f5]"
+    ></div>
+  </div>
   <div id="default-slider" class="splide container mx-auto">
     <div class="splide__track">
       <ul class="splide__list">
@@ -78,7 +90,9 @@
       </button>
     </div>
     <!--Pagination-->
-    <div class="space-x-2  sm:space-x-3 flex justify-center mt-[36px] mx-4 sm:mx-0">
+    <div
+      class="space-x-2 sm:space-x-3 flex justify-center mt-[36px] mx-4 sm:mx-0"
+    >
       @for(item of items; track item; let i = $index) {
       <button
         (click)="goToSlide(i)"

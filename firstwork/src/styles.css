@@ -8,3 +8,7 @@
   box-sizing: border-box;
   @apply font-sans;
 }
+
+body::-webkit-scrollbar {
+  display: none;
+}
