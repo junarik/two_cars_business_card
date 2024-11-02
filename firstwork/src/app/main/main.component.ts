@@ -24,7 +24,7 @@ export class MainComponent implements OnInit {
   ];
 
   displayedItems: string[] = [];
-  private itemsPerClick: number = 3;
+  private itemsPerClick: number = 6;
 
   ngOnInit(){
     this.loadMoreItems();
