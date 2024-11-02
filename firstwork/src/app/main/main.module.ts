@@ -13,16 +13,19 @@ import { VgOverlayPlayModule } from '@videogular/ngx-videogular/overlay-play';
 import { VgBufferingModule } from '@videogular/ngx-videogular/buffering';
 import { SingleMediaPlayerComponent } from './single-media-player/single-media-player.component';
 import { HeroSectionComponent } from './hero-section/hero-section.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 
 @NgModule({
-  declarations: [MainComponent, HeaderComponent, FooterComponent, CarouselCustomerComponent, ServicesOverviewComponent, PurchasedCarsGridComponent, SingleMediaPlayerComponent, StagesOfWorkingComponent, HeroSectionComponent],
+  declarations: [MainComponent, HeaderComponent, FooterComponent, CarouselCustomerComponent, ServicesOverviewComponent, PurchasedCarsGridComponent, SingleMediaPlayerComponent, StagesOfWorkingComponent, HeroSectionComponent, ContactUsComponent],
   imports: [
     CommonModule,
     VgCoreModule,
     VgControlsModule,
     VgOverlayPlayModule,
     VgBufferingModule,
+    ReactiveFormsModule
   ],
   exports: [
     MainComponent,
