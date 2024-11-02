@@ -1,6 +1,6 @@
-<section class="bg-black p-12 min-h-[720px]">
+<section class="bg-[#272727] p-12 min-h-[720px]">
   <div class="container mx-auto">
-    <div class="grid relative grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+    <div [@listAnimation]="displayedItems" class="grid relative grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
       @for(item of displayedItems; track $index) {
       <div
         class="prettyCard relative group overflow-hidden w-full rounded-[2px] cursor-pointer p-6"
@@ -35,7 +35,7 @@
     <div class="flex flex-row justify-center mt-[40px]">
       <button
         (click)="handleButtonClick()"
-        class="bg-transparent border-[1px] rounded-full transition-all duration-[30ms]cursor-pointer hover:bg-[#3ef8f5] text-white px-[9rem] ease-linear py-3"
+        class="bg-transparent border-[1px] rounded-full transition-all duration-[30ms]cursor-pointer hover:bg-[#3ef8f5] text-white px-[4rem] py-2  sm:px-[9rem] ease-linear sm:py-3"
       >
         <span class="text-2xl font-semibold"> Дивитись ще </span>
       </button>
