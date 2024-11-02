@@ -1,9 +1,9 @@
 <section class="bg-black p-12 min-h-[720px]">
   <div class="container mx-auto">
     <div class="grid relative grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
-      @for(item of items.slice(0, 6); track $index) {
+      @for(item of displayedItems; track $index) {
       <div
-        class="prettyCard relative group overflow-hidden w-full rounded-[2px] cursor-pointer  p-6"
+        class="prettyCard relative group overflow-hidden w-full rounded-[2px] cursor-pointer p-6"
       >
         <span class="border-bottom"></span>
         <span class="border-right"></span>
@@ -16,9 +16,13 @@
         <div class="min-h-[120px] flex flex-col gap-2 p-2">
           <div class="text-center text-2xl font-bold text-white">
             {{ item }}
-          </div>  
-          <div class="text-white break-all  sm:break-normal">
-            Автомобіль із витонченими обрисами та елегантною лінією кузова, що плавно переходить від капота до задніх ліхтарів. Його поверхня сяє вугільно-чорним кольором із металевим блиском, відбиваючи світло, як дзеркало. Фари, схожі на котячі очі, надають йому агресивності, а хромовані деталі додають нотки розкоші.
+          </div>
+          <div class="text-white break-all sm:break-normal">
+            Автомобіль із витонченими обрисами та елегантною лінією кузова, що
+            плавно переходить від капота до задніх ліхтарів. Його поверхня сяє
+            вугільно-чорним кольором із металевим блиском, відбиваючи світло, як
+            дзеркало. Фари, схожі на котячі очі, надають йому агресивності, а
+            хромовані деталі додають нотки розкоші.
           </div>
         </div>
       </div>
@@ -27,14 +31,15 @@
       }
     </div>
 
+    @if (showLoadMore) {
     <div class="flex flex-row justify-center mt-[40px]">
-      <button class="bg-transparent border-[1px] rounded-full transition-all duration-[30ms]cursor-pointer hover:bg-[#3ef8f5] text-white px-[9rem] ease-linear py-3">
-        <span class="text-2xl font-semibold">
-          Click here!
-        </span>
-     
+      <button
+        (click)="handleButtonClick()"
+        class="bg-transparent border-[1px] rounded-full transition-all duration-[30ms]cursor-pointer hover:bg-[#3ef8f5] text-white px-[9rem] ease-linear py-3"
+      >
+        <span class="text-2xl font-semibold"> Дивитись ще </span>
       </button>
     </div>
-
+    }
   </div>
 </section>
