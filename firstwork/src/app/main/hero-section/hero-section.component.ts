@@ -13,22 +13,19 @@ export class HeroSectionComponent implements OnInit {
   placeholderImage = 'assets/images/Audi1img.jpg';
 
   ngOnInit() {
-    // Попереднє завантаження відео
     this.preloadVideo();
   }
 
   private preloadVideo() {
     const video = new Image();
     video.src = this.videoSrc;
-    
-    // Створюємо окремий елемент відео для попереднього завантаження
+
     const preloadVideo = document.createElement('video');
     preloadVideo.src = this.videoSrc;
-    preloadVideo.load(); // Починаємо завантаження
+    preloadVideo.load();
   }
 
   onVideoCanPlay() {
-    // Невелика затримка перед показом відео для впевненості, що воно повністю готове
     setTimeout(() => {
       this.isVideoLoaded = true;
       if (this.videoElement) {
