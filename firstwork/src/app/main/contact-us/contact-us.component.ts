@@ -5,7 +5,7 @@ import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/fo
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
-  styleUrl: './contact-us.component.css',
+  styleUrls: ['./contact-us.component.css'],
   animations: [
     trigger('errorAnimation', [
       transition(':enter', [
@@ -27,11 +27,23 @@ import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/fo
           height: 0
         }))
       ])
+    ]),
+    trigger('swapAnimation', [
+      transition(':enter', [
+        style({
+          opacity: 0,
+        }),
+        animate('500ms ease-in-out', style({
+          opacity: 1,
+        }))
+      ])
     ])
   ]
 })
 
 export class ContactUsComponent {
+  isSubmited = false;
+
   contactUsForm = new FormGroup({
     name: new FormControl('', {
       validators: [Validators.required, Validators.minLength(2), Validators.maxLength(32)],
@@ -45,6 +57,7 @@ export class ContactUsComponent {
       updateOn: 'blur'
     })
   });
+
   get nameControl(): AbstractControl | null {
     return this.contactUsForm.get('name');
   }
@@ -55,5 +68,6 @@ export class ContactUsComponent {
 
   onSubmit() {
     console.log(this.contactUsForm.value);
+    this.isSubmited = true;
   }
 }
