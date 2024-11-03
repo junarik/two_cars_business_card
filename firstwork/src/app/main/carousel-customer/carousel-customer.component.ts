@@ -20,22 +20,22 @@ export class CarouselCustomerComponent
 {
   currentSlide: number = 0;
   splide?: Splide;
+  isVideoPlaying = false;
 
   @ViewChildren(SingleMediaPlayerComponent)
   videoPlayers!: QueryList<SingleMediaPlayerComponent>;
 
   activeIndex: number = 0;
 
-  items: string[] = [
-    'Slide 01',
-    'Slide 02',
-    'Slide 03',
-    'Slide 04',
-    'Slide 05',
-    'Slide 06',
-    'Slide 07',
-    'Slide 08',
-    'Slide 09',
+  videoSources: string[] = [
+    'assets/videos/video3s.mp4',
+    'assets/videos/video4s.mp4',
+    'assets/videos/video5s.mp4',
+    'assets/videos/video6s.mp4',
+    'assets/videos/video1s.mp4',
+    'assets/videos/video2s.mp4',
+    'assets/videos/voice.mp4',
+    'assets/videos/Audi.mp4',
   ];
 
   ngOnInit() {
@@ -54,6 +54,10 @@ export class CarouselCustomerComponent
         firstPlayer.playVideo();
       }
     });
+  }
+
+  updateVideoPlayingState(isPlaying: boolean) {
+    this.isVideoPlaying = isPlaying;
   }
 
   private initializeSplide() {

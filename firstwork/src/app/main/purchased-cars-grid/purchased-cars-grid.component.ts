@@ -6,7 +6,7 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'app-purchased-cars-grid',
   templateUrl: './purchased-cars-grid.component.html',
@@ -31,10 +31,27 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     ]),
   ],
 })
-export class PurchasedCarsGridComponent {
+export class PurchasedCarsGridComponent implements OnInit {
   @Input() showLoadMore!: boolean;
   @Input() displayedItems!: string[];
   @Output() clickButton = new EventEmitter<void>();
+
+  isLessXl: boolean = false;
+
+  ngOnInit()
+  {
+    this.checkScreenSize();
+  }
+
+  @HostListener('window:resize', [])
+  onResize() {
+    this.checkScreenSize();
+  }
+
+  private checkScreenSize()
+  {
+    this.isLessXl = window.innerWidth < 1280;
+  }
 
   handleButtonClick() {
     this.clickButton.emit();

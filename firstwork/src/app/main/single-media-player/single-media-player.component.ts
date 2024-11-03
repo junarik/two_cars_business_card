@@ -1,8 +1,10 @@
 import {
   Component,
+  EventEmitter,
   Input,
   OnChanges,
   OnInit,
+  Output,
   SimpleChanges,
 } from '@angular/core';
 import { VgApiService } from '@videogular/ngx-videogular/core';
@@ -14,7 +16,8 @@ import { VgApiService } from '@videogular/ngx-videogular/core';
 })
 export class SingleMediaPlayerComponent implements OnChanges {
   @Input() isActive: boolean = false;
-
+  @Input() src: string = ''; 
+  @Output() videoPlayingStateChange = new EventEmitter<boolean>();
   api!: VgApiService;
 
   ngOnChanges(changes: SimpleChanges) {
@@ -32,12 +35,20 @@ export class SingleMediaPlayerComponent implements OnChanges {
 
     this.api.getDefaultMedia().subscriptions.loadedMetadata.subscribe(() => {
       if (this.isActive) {
-        setTimeout(() => {
-          this.playVideo();
-        }, 0);
+        this.playVideo();
       }
     });
+
+    this.api.getDefaultMedia().subscriptions.play.subscribe(() => {
+      this.videoPlayingStateChange.emit(true);
+    });
+
+    this.api.getDefaultMedia().subscriptions.pause.subscribe(() => {
+      this.videoPlayingStateChange.emit(false);
+    });
   }
+
+  
 
   playVideo() {
     this.api?.getDefaultMedia().play();
