@@ -1,5 +1,5 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, input, Output, output } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -42,7 +42,9 @@ import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/fo
 })
 
 export class ContactUsComponent {
-  isSubmited = false;
+  @Output() formSubmitEvent = new EventEmitter<FormGroup>();
+  @Input() isSubmited: boolean = false;  
+
 
   contactUsForm = new FormGroup({
     name: new FormControl('', {
@@ -67,7 +69,6 @@ export class ContactUsComponent {
   }
 
   onSubmit() {
-    console.log(this.contactUsForm.value);
-    this.isSubmited = true;
+    this.formSubmitEvent.emit(this.contactUsForm);
   }
 }
