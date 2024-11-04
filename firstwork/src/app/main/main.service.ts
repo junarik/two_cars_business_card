@@ -11,14 +11,15 @@ export class MainService {
   }
 
   submitTicketToCrm(name: string, phoneNumber: string): Observable<any> {
+    const url = 'https://cors-anywhere.herokuapp.com/https://twocars.salesdrive.me/handler/';
     const requestBody = {
       form: environment.crmApikey,
-      fName: name,    
+      fName: name,
       phone: phoneNumber,
       getResultData: 1,
     };
 
     // Make the HTTP POST request and handle errors
-    return this.httpClient.post(environment.baseApiUrl, requestBody);
+    return this.httpClient.post(url, requestBody);
   }
 }
