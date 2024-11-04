@@ -14,9 +14,10 @@ const handler: Handler = async (event) => {
   try {
     // Parse the request body to get data sent from the client
     const requestBody = JSON.parse(event.body || '{}');
+    const url = environment.baseApiUrl + '/handler/';
 
     // Send the POST request to the target API
-    const response = await fetch(environment.baseApiUrl, {
+    const response = await fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
