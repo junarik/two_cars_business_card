@@ -67,9 +67,8 @@ export class CarouselCustomerComponent
       drag: false,
     }).mount();
 
-    // Використовуємо 'moved' замість 'move' для кращої продуктивності
     this.splide.on('move', (newIndex) => {
-      this.handleSlideChange(newIndex);
+        this.handleSlideChange(newIndex);
     });
 
     // Додаємо обробник для паузи при драгу (якщо включите drag: true)
