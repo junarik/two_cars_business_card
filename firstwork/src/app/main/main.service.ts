@@ -11,15 +11,30 @@ export class MainService {
   }
 
   submitTicketToCrm(name: string, phoneNumber: string): Observable<any> {
-    const url = '/.netlify/functions/node-fetch';
-    
+    const url = '/.netlify/functions/submit-ticket';
+
     const requestBody = {
       form: environment.crmApikey,
       fName: name,
       phone: phoneNumber,
       getResultData: 1,
     };
-  
+
+    return this.httpClient.post(url, requestBody);
+  }
+
+  assignTicketToAdminUser(ticketId: number): Observable<any> {
+    const url = '/.netlify/functions/update-ticket';
+    const salesDriveAdminManagerId = 1;
+
+    const requestBody = {
+      form: environment.crmApikey,
+      id: ticketId,
+      data: {
+        salesdrive_manager: salesDriveAdminManagerId
+      }
+    };
+
     return this.httpClient.post(url, requestBody);
   }
 }
