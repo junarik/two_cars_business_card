@@ -11,7 +11,7 @@ export class MainService {
   }
 
   submitTicketToCrm(name: string, phoneNumber: string): Observable<any> {
-    const url = '/api/handler/';
+    const url = 'https://twocars.salesdrive.me/handler/';
     const requestBody = {
       form: environment.crmApikey,
       fName: name,
