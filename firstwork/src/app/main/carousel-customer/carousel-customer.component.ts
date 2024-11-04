@@ -1,11 +1,9 @@
 import {
   AfterViewInit,
   Component,
-  OnChanges,
   OnDestroy,
   OnInit,
   QueryList,
-  SimpleChanges,
   ViewChildren,
 } from '@angular/core';
 import Splide from '@splidejs/splide';
