@@ -81,6 +81,9 @@
             "production": {
               "buildTarget": "firstwork:build:production"
             },
+            "options": {
+              "proxyConfig": "proxy.conf.json"
+            },
             "development": {
               "buildTarget": "firstwork:build:development"
             }

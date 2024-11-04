@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { Observable } from 'rxjs';
@@ -11,7 +11,7 @@ export class MainService {
   }
 
   submitTicketToCrm(name: string, phoneNumber: string): Observable<any> {
-    const url = 'https://cors-anywhere.herokuapp.com/https://twocars.salesdrive.me/handler/';
+    const url = '/api/handler/';
     const requestBody = {
       form: environment.crmApikey,
       fName: name,
@@ -19,7 +19,7 @@ export class MainService {
       getResultData: 1,
     };
 
-    // Make the HTTP POST request and handle errors
+    // Виконуємо POST-запит через проксі-сервер
     return this.httpClient.post(url, requestBody);
   }
 }
