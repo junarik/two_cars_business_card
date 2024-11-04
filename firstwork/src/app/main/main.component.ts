@@ -66,10 +66,25 @@ export class MainComponent implements OnInit {
         })
       )
       .subscribe({
-        next: (result) => {
+        next: (response) => {
           // Handle successful response
-          console.log('Ticket submitted successfully:', result);
-          this.isSubmited = true;
+          this.mainService.assignTicketToAdminUser(response.data.orderId)
+            .pipe(
+              catchError((error: HttpErrorResponse) => {
+                // Handle the error and log it
+                console.error('Error occurred while assigning ticket admin user:', error);
+
+                // Optionally show a message to the user here, if needed
+                // this.toastrService.error('Failed to submit ticket');
+
+                // Re-throw the error so it can be handled further up if needed
+                return throwError(() => new Error('Failed to assign ticket to admin user'));
+              }))
+            .subscribe({
+              next: (response) => {
+                this.isSubmited = true;
+              }
+            });
         }
       });
   }
