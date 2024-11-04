@@ -15,12 +15,14 @@ import { VgApiService } from '@videogular/ngx-videogular/core';
 })
 export class SingleMediaPlayerComponent implements OnChanges {
   @Input() isActive: boolean = false;
-  @Input() src: string = ''; 
+  @Input() src: string = '';
   @Output() videoPlayingStateChange = new EventEmitter<boolean>();
+
   api!: VgApiService;
+  private isInitialLoad: boolean = true;
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['isActive'] && this.api?.getDefaultMedia()) {
+    if (changes['isActive'] && this.api?.getDefaultMedia() && !this.isInitialLoad) {
       if (this.isActive) {
         this.playVideo();
       } else {
@@ -33,9 +35,8 @@ export class SingleMediaPlayerComponent implements OnChanges {
     this.api = source;
 
     this.api.getDefaultMedia().subscriptions.loadedMetadata.subscribe(() => {
-      if (this.isActive) {
-        this.playVideo();
-      }
+      this.isInitialLoad = false;
+      this.pauseVideo();
     });
 
     this.api.getDefaultMedia().subscriptions.play.subscribe(() => {
@@ -47,10 +48,10 @@ export class SingleMediaPlayerComponent implements OnChanges {
     });
   }
 
-  
-
   playVideo() {
-    this.api?.getDefaultMedia().play();
+    if (!this.isInitialLoad) {
+      this.api?.getDefaultMedia().play();
+    }
   }
 
   pauseVideo() {

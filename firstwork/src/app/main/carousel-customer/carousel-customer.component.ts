@@ -46,11 +46,6 @@ export class CarouselCustomerComponent
     // Ініціалізуємо слайдер після того, як відео компоненти будуть готові
     setTimeout(() => {
       this.initializeSplide();
-      // Запускаємо перше відео після ініціалізації
-      const firstPlayer = this.videoPlayers.first;
-      if (firstPlayer) {
-        firstPlayer.playVideo();
-      }
     });
   }
 
@@ -70,9 +65,8 @@ export class CarouselCustomerComponent
       drag: false,
     }).mount();
 
-    // Використовуємо 'moved' замість 'move' для кращої продуктивності
     this.splide.on('move', (newIndex) => {
-      this.handleSlideChange(newIndex);
+        this.handleSlideChange(newIndex);
     });
 
     // Додаємо обробник для паузи при драгу (якщо включите drag: true)
