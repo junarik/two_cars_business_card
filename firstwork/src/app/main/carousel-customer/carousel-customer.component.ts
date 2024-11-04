@@ -48,11 +48,6 @@ export class CarouselCustomerComponent
     // Ініціалізуємо слайдер після того, як відео компоненти будуть готові
     setTimeout(() => {
       this.initializeSplide();
-      // Запускаємо перше відео після ініціалізації
-      const firstPlayer = this.videoPlayers.first;
-      if (firstPlayer) {
-        firstPlayer.playVideo();
-      }
     });
   }
 
