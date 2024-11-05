@@ -1,5 +1,6 @@
 export enum TicketStatus {
     NotSent = 'NOTSENT',
     Recieved = 'RECIEVED',
-    NotRecieved = 'NOTRECIEVED'
+    NotRecieved = 'NOTRECIEVED',
+    Pending = 'PENDING' 
 }

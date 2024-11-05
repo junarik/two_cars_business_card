@@ -7,6 +7,7 @@ import {
   trigger,
 } from '@angular/animations';
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
+import { Car } from '../models/car';
 @Component({
   selector: 'app-purchased-cars-grid',
   templateUrl: './purchased-cars-grid.component.html',
@@ -33,9 +34,8 @@ import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@a
 })
 export class PurchasedCarsGridComponent implements OnInit {
   @Input() showLoadMore!: boolean;
-  @Input() displayedItems!: string[];
+  @Input() displayedItems!: Car[];
   @Output() clickButton = new EventEmitter<void>();
-
   isLessXl: boolean = false;
 
   ngOnInit()
