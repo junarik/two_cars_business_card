@@ -17,6 +17,7 @@ export class MainService {
       form: environment.crmApikey,
       fName: name,
       phone: phoneNumber,
+      prodex24source: "Веб-сайт TWOCARS",
       getResultData: 1,
     };
 
@@ -25,7 +26,7 @@ export class MainService {
 
   assignTicketToAdminUser(ticketId: number): Observable<any> {
     const url = '/.netlify/functions/update-ticket';
-    const salesDriveAdminManagerId = 1;
+    const salesDriveAdminManagerId = 2;
 
     const requestBody = {
       form: environment.crmApikey,

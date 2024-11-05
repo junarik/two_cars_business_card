@@ -3,6 +3,7 @@ import { MainService } from './main.service';
 import { catchError, throwError } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormGroup } from '@angular/forms';
+import { TicketStatus } from './models/ticketStatus';
 
 @Component({
   selector: 'app-main',
@@ -10,7 +11,7 @@ import { FormGroup } from '@angular/forms';
   styleUrl: './main.component.css',
 })
 export class MainComponent implements OnInit {
-  isSubmited = false;
+  ticketStatus: TicketStatus = TicketStatus.NotSent;
 
   constructor(private mainService: MainService) {
 
@@ -57,6 +58,7 @@ export class MainComponent implements OnInit {
         catchError((error: HttpErrorResponse) => {
           // Handle the error and log it
           console.error('Error occurred while submitting ticket:', error);
+          this.ticketStatus = TicketStatus.NotSent;
 
           // Optionally show a message to the user here, if needed
           // this.toastrService.error('Failed to submit ticket');
@@ -72,7 +74,9 @@ export class MainComponent implements OnInit {
             .pipe(
               catchError((error: HttpErrorResponse) => {
                 // Handle the error and log it
-                console.error('Error occurred while assigning ticket admin user:', error);
+                // console.error('Error occurred while assigning ticket admin user:', error);
+                this.ticketStatus = TicketStatus.NotSent;
+
 
                 // Optionally show a message to the user here, if needed
                 // this.toastrService.error('Failed to submit ticket');
@@ -82,7 +86,7 @@ export class MainComponent implements OnInit {
               }))
             .subscribe({
               next: (response) => {
-                this.isSubmited = true;
+                this.ticketStatus = TicketStatus.Recieved;
               }
             });
         }
