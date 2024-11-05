@@ -46,8 +46,6 @@ export class ContactUsComponent {
   @Output() formSubmitEvent = new EventEmitter<FormGroup>();
   @Input() ticketStatus: TicketStatus = TicketStatus.NotSent;
 
-  isLoading: boolean = true;
-
   contactUsForm = new FormGroup({
     name: new FormControl('', {
       validators: [Validators.required, Validators.minLength(2), Validators.maxLength(32)],
@@ -71,16 +69,6 @@ export class ContactUsComponent {
   }
 
   onSubmit() {
-    this.isLoading = true;
-    setTimeout(() => {
-      const isSuccess = Math.random() > 0.5;
-
-      if (isSuccess) {
-        this.ticketStatus = TicketStatus.Recieved;  
-      } else {
-        this.ticketStatus = TicketStatus.NotRecieved;  
-      }
-      this.isLoading = false;
-    }, 2000);
+    this.formSubmitEvent.emit(this.contactUsForm);
   }
 }
