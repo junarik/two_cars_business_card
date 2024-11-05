@@ -19,8 +19,8 @@ export class MainService {
       phone: phoneNumber,
       getResultData: 1,
     };
-
     return this.httpClient.post(url, requestBody);
+    
   }
 
   assignTicketToAdminUser(ticketId: number): Observable<any> {

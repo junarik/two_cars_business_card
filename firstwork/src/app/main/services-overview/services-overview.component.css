@@ -5,3 +5,7 @@
 .prettyText {
   filter: drop-shadow(0 0 1px #3ef8f5);
 }
+
+.prettyBorder{
+  filter: drop-shadow();
+}
