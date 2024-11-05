@@ -4,5 +4,6 @@ export interface Car {
     transmission: string;
     fuelType: string;
     price: number;
+    imageUrl: string;
   }
   
