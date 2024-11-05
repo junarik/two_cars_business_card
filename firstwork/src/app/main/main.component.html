@@ -1,3 +1,8 @@
+
+<div class="fade-overlay" [ngClass]="{'hidden': !showOverlay}">
+  <app-loader></app-loader> 
+</div>
+
 <app-header></app-header>
 <app-hero-section></app-hero-section>
 <app-stages-of-working></app-stages-of-working>
@@ -7,6 +12,3 @@
 <app-services-overview></app-services-overview>
 <app-contact-us [ticketStatus]="ticketStatus" (formSubmitEvent)="submitTicketToCrm($event)"></app-contact-us>
 
-
-
-<app-footer></app-footer>

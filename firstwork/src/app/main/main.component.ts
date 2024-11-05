@@ -14,6 +14,8 @@ import { Car } from './models/car';
 export class MainComponent implements OnInit {
   ticketStatus: TicketStatus = TicketStatus.NotSent;
 
+  showOverlay = true;
+
   constructor(private mainService: MainService) {
 
   }
@@ -25,6 +27,9 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     this.loadMoreItems();
+    setTimeout(() => {
+      this.showOverlay = false;
+    }, 1000);
   }
 
   handleButtonClick() {

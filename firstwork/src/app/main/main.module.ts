@@ -15,10 +15,11 @@ import { SingleMediaPlayerComponent } from './single-media-player/single-media-p
 import { HeroSectionComponent } from './hero-section/hero-section.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { LoaderComponent } from './loader/loader.component';
 
 
 @NgModule({
-  declarations: [MainComponent, HeaderComponent, FooterComponent, CarouselCustomerComponent, ServicesOverviewComponent, PurchasedCarsGridComponent, SingleMediaPlayerComponent, StagesOfWorkingComponent, HeroSectionComponent, ContactUsComponent],
+  declarations: [MainComponent, HeaderComponent, FooterComponent, CarouselCustomerComponent, ServicesOverviewComponent, PurchasedCarsGridComponent, SingleMediaPlayerComponent, StagesOfWorkingComponent, HeroSectionComponent, ContactUsComponent, LoaderComponent],
   imports: [
     CommonModule,
     VgCoreModule,
