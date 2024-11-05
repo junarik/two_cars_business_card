@@ -4,7 +4,8 @@ import { catchError, throwError } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormGroup } from '@angular/forms';
 import { TicketStatus } from './models/ticketStatus';
-
+import { carListing } from './store/carListing'
+import { Car } from './models/car';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -17,24 +18,9 @@ export class MainComponent implements OnInit {
 
   }
 
-  items: string[] = [
-    'Смартфон',
-    'Ноутбук',
-    'Планшет',
-    'Навушники',
-    'Клавіатура',
-    'Миша',
-    'Монітор',
-    'Принтер',
-    'Колонки',
-    'Роутер',
-    'Веб-камера',
-    'Зарядний пристрій',
-    'Якась ще фігня',
-    'Просто'
-  ];
+  carListing: Car[] = carListing;
 
-  displayedItems: string[] = [];
+  displayedItems: Car[] = [];
   private itemsPerClick: number = 3;
 
   ngOnInit() {
@@ -47,7 +33,7 @@ export class MainComponent implements OnInit {
 
   loadMoreItems() {
     const nextIndex = this.displayedItems.length;
-    const newItems = this.items.slice(nextIndex, nextIndex + this.itemsPerClick);
+    const newItems = this.carListing.slice(nextIndex, nextIndex + this.itemsPerClick);
 
     this.displayedItems = [...this.displayedItems, ...newItems];
   }
