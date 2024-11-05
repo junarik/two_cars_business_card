@@ -1,6 +1,7 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, EventEmitter, Input, input, Output, output } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { TicketStatus } from '../models/ticketStatus';
 
 @Component({
   selector: 'app-contact-us',
@@ -43,7 +44,7 @@ import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/fo
 
 export class ContactUsComponent {
   @Output() formSubmitEvent = new EventEmitter<FormGroup>();
-  @Input() isSubmited: boolean = false;  
+  @Input() ticketStatus: TicketStatus = TicketStatus.NotSent;
 
 
   contactUsForm = new FormGroup({
@@ -70,5 +71,9 @@ export class ContactUsComponent {
 
   onSubmit() {
     this.formSubmitEvent.emit(this.contactUsForm);
+  }
+
+  ticketTypeMatch(ticketStatus: TicketStatus): boolean {
+    return this.ticketStatus === ticketStatus;
   }
 }
