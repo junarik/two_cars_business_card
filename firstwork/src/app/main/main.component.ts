@@ -53,11 +53,7 @@ export class MainComponent implements OnInit {
   }
 
   submitTicketToCrm(formGroup: FormGroup) {
-    setTimeout(() => { 
-      this.ticketStatus = TicketStatus.Pending
-      }, 2000);
-      this.ticketStatus = TicketStatus.Recieved
-    /* this.mainService.submitTicketToCrm(formGroup.value.name, formGroup.value.phoneNumber)
+    this.mainService.submitTicketToCrm(formGroup.value.name, formGroup.value.phoneNumber)
       .pipe(
         catchError((error: HttpErrorResponse) => {
           // Handle the error and log it
@@ -94,6 +90,6 @@ export class MainComponent implements OnInit {
               }
             });
         }
-      }); */
+      });
   }
 }
