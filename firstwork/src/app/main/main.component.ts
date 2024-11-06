@@ -48,17 +48,16 @@ export class MainComponent implements OnInit, AfterViewInit {
 
   animateBox() {
     gsap.from('#stages-of-working .text-center', { 
-      x:10,
-      y:4,
-      opacity:0,
+      x:40,
+      scale: 0.5,
+      y:200,
+      opacity:0.3,
       ease: 'power4.inOut',
-      stagger: 0.4,
       scrollTrigger: {
         trigger: '#stages-of-working',
-        start: 'top 84%',
-        end: 'top 58%',
-        scrub: 0.3,
-        toggleActions: 'play none none reverse'
+        start: 'top 120%',
+        end: 'top 40%',
+        scrub: 0.9,
       }
     });
 
