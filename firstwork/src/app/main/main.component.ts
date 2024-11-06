@@ -64,24 +64,24 @@ export class MainComponent implements OnInit, AfterViewInit {
     gsap.from('#reviews, .gsapAnimate', {
       y:100,
       ease: 'power4.inOut',
-      stagger: 0.3,
+      stagger: 0.1,
       scrollTrigger: {
         trigger: '#reviews',
-        start: 'top 128%',
-        end: 'top 40%',
-        scrub: 0.3,
-        toggleActions: 'play none none reverse'
+        start: 'top 98%',
+        end: 'top 30%',
+        scrub: 1,
       }
     })
 
     gsap.from('#purchased-cars, gsadSimpleAnimation', {
-      y: 300,
+      y: 200,
+      x: -400,
       rotate: 5,
       ease: 'power4.inOut',
       scrollTrigger: {
         trigger: '#purchased-cars', 
-        start: 'top 120%',
-        end: 'top 90%',
+        start: 'top 110%',
+        end: 'top 50%',
         scrub: 1,
         toggleActions: 'play none none reverse'
       }
