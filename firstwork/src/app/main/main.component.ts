@@ -154,7 +154,7 @@ export class MainComponent implements OnInit, AfterViewInit {
       .pipe(
         catchError((error: HttpErrorResponse) => {
           // Handle the error and log it
-          console.error('Error occurred while submitting ticket:', error);
+            console.error('Error occurred while submitting ticket:', error);
           this.ticketStatus = TicketStatus.NotSent;
 
           // Optionally show a message to the user here, if needed
