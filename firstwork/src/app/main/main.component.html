@@ -5,14 +5,18 @@
 <app-header></app-header>
 <app-hero-section></app-hero-section>
 <app-stages-of-working></app-stages-of-working>
+<div id="reviews-href"></div>
 <app-carousel-customer></app-carousel-customer>
 <div class="bg-[#272727]">
+  <div id="purchased-cars-href"></div>
   <app-purchased-cars-grid [displayedItems]="displayedItems" (clickButton)="handleButtonClick()"
     [showLoadMore]="displayedItems.length < carListing.length"></app-purchased-cars-grid>
 </div>
 
 <div class="bg-[#000000]">
+  <div id="services-overview-href"></div>
   <app-services-overview></app-services-overview>
+  <div id="contact-us-href"></div>
   <app-contact-us [ticketStatus]="ticketStatus" (formSubmitEvent)="submitTicketToCrm($event)"></app-contact-us>
 </div>
 
