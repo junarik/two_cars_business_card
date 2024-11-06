@@ -24,6 +24,7 @@ export class MainComponent implements OnInit, AfterViewInit {
   ticketStatus: TicketStatus = TicketStatus.NotSent;
 
   showOverlay = true;
+  private refreshTimeout: any;
 
   constructor(private mainService: MainService) {
 
@@ -108,7 +109,6 @@ export class MainComponent implements OnInit, AfterViewInit {
         start: 'top 80%',
         end: 'top 50%',
         scrub: 1,
-        markers: true,
       }
     });
 
@@ -142,11 +142,14 @@ export class MainComponent implements OnInit, AfterViewInit {
   }
 
   loadMoreItems() {
+    clearTimeout(this.refreshTimeout);
     const nextIndex = this.displayedItems.length;
     const newItems = this.carListing.slice(nextIndex, nextIndex + this.itemsPerClick);
 
     this.displayedItems = [...this.displayedItems, ...newItems];
-    ScrollTrigger.refresh();
+    
+    // Refresh ScrollTrigger with debounce
+    this.refreshTimeout = setTimeout(() => ScrollTrigger.refresh(), 100);
   }
 
   submitTicketToCrm(formGroup: FormGroup) {
