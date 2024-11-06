@@ -9,8 +9,12 @@
   @apply font-sans;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 body::-webkit-scrollbar {
-  display: none;
+  display: none; 
 }
 
 html {
