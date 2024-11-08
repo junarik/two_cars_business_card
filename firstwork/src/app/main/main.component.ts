@@ -75,7 +75,6 @@ export class MainComponent implements OnInit, AfterViewInit {
 
     gsap.from('#purchased-cars, gsadSimpleAnimation', {
       y: 275,
-      rotate: 5,
       ease: 'power4.inOut',
       scrollTrigger: {
         trigger: '#purchased-cars', 
