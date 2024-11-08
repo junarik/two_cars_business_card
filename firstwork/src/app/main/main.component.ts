@@ -150,6 +150,7 @@ export class MainComponent implements OnInit, AfterViewInit {
   }
 
   submitTicketToCrm(formGroup: FormGroup) {
+    this.ticketStatus = TicketStatus.Pending;
     this.mainService.submitTicketToCrm(formGroup.value.name, formGroup.value.phoneNumber)
       .pipe(
         catchError((error: HttpErrorResponse) => {
