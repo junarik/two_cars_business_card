@@ -11,7 +11,7 @@ export class YouTubeMediaPlayerComponent {
 
   // Dynamically build the embed URL based on the `src` input
   get videoUrl(): string {
-    return `https://www.youtube.com/embed/${this.src}?autoplay=${this.isActive ? 1 : 0}`;
+    return `https://www.youtube.com/embed/${this.src}?autoplay=0`;
   }
 
   ngOnInit(): void { }
