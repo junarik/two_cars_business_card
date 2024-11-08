@@ -31,6 +31,12 @@ export class CarouselCustomerComponent implements OnInit, OnDestroy, AfterViewIn
     'S339fh0Oavk',
   ];
 
+  videoName: string[] = [
+    'Scoda Superb 2011', // Add actual YouTube video IDs
+    'Ford Focus 2010',
+    'Деталі про машину',
+  ];
+
   ngOnInit() {
     if (this.splide) {
       this.splide.destroy();
