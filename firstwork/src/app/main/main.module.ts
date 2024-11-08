@@ -16,10 +16,12 @@ import { HeroSectionComponent } from './hero-section/hero-section.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { LoaderComponent } from './loader/loader.component';
+import { YouTubeMediaPlayerComponent } from './you-tube-media-player/you-tube-media-player.component';
+import { SafeUrlPipe } from './safe-url.pipe';
 
 
 @NgModule({
-  declarations: [MainComponent, HeaderComponent, FooterComponent, CarouselCustomerComponent, ServicesOverviewComponent, PurchasedCarsGridComponent, SingleMediaPlayerComponent, StagesOfWorkingComponent, HeroSectionComponent, ContactUsComponent, LoaderComponent],
+  declarations: [MainComponent, HeaderComponent, FooterComponent, CarouselCustomerComponent, ServicesOverviewComponent, PurchasedCarsGridComponent, SingleMediaPlayerComponent, StagesOfWorkingComponent, HeroSectionComponent, ContactUsComponent, LoaderComponent, YouTubeMediaPlayerComponent, SafeUrlPipe],
   imports: [
     CommonModule,
     VgCoreModule,

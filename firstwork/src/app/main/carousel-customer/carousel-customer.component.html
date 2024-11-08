@@ -10,9 +10,7 @@
           @for (item of videoSources; track item) {
           <li class="splide__slide flex flex-col justify-center items-center rounded-[4px]">
             <div class="w-6/12 h-[400px] mb-6">
-              <app-single-media-player [src]="item" (videoPlayingStateChange)="updateVideoPlayingState($event)"
-                [isActive]="$index === activeIndex">
-              </app-single-media-player>
+              <app-you-tube-media-player [src]="videoSources[$index]" [isActive]="$index === activeIndex"></app-you-tube-media-player>
             </div>
             <span class="font-bold text-2xl text-white">BMW X5 Super Car</span>
           </li>

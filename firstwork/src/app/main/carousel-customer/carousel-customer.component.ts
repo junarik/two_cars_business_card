@@ -7,33 +7,28 @@ import {
   ViewChildren,
 } from '@angular/core';
 import Splide from '@splidejs/splide';
-import { SingleMediaPlayerComponent } from '../single-media-player/single-media-player.component';
+import { YouTubeMediaPlayerComponent } from '../you-tube-media-player/you-tube-media-player.component';
+
 @Component({
   selector: 'app-carousel-customer',
   templateUrl: './carousel-customer.component.html',
   styleUrl: './carousel-customer.component.css',
 })
-export class CarouselCustomerComponent
-  implements OnInit, OnDestroy, AfterViewInit
-{
+export class CarouselCustomerComponent implements OnInit, OnDestroy, AfterViewInit {
   currentSlide: number = 0;
   splide?: Splide;
   isVideoPlaying = false;
 
-  @ViewChildren(SingleMediaPlayerComponent)
-  videoPlayers!: QueryList<SingleMediaPlayerComponent>;
+  @ViewChildren(YouTubeMediaPlayerComponent)
+  videoPlayers!: QueryList<YouTubeMediaPlayerComponent>;
 
   activeIndex: number = 0;
 
+  // Use YouTube video IDs here
   videoSources: string[] = [
-    'assets/videos/video3s.mp4',
-    'assets/videos/video4s.mp4',
-    'assets/videos/video5s.mp4',
-    'assets/videos/video6s.mp4',
-    'assets/videos/video1s.mp4',
-    'assets/videos/video2s.mp4',
-    'assets/videos/voice.mp4',
-    'assets/videos/Audi.mp4',
+    'oback-3tWeg', // Add actual YouTube video IDs
+    'LgIgY0aEsbM',
+    'S339fh0Oavk',
   ];
 
   ngOnInit() {
@@ -43,7 +38,6 @@ export class CarouselCustomerComponent
   }
 
   ngAfterViewInit() {
-    // Ініціалізуємо слайдер після того, як відео компоненти будуть готові
     setTimeout(() => {
       this.initializeSplide();
     });
@@ -66,28 +60,22 @@ export class CarouselCustomerComponent
     }).mount();
 
     this.splide.on('move', (newIndex) => {
-        this.handleSlideChange(newIndex);
+      this.handleSlideChange(newIndex);
     });
 
-    // Додаємо обробник для паузи при драгу (якщо включите drag: true)
     this.splide.on('drag', () => {
-      this.videoPlayers.forEach((player) => player.pauseVideo());
+      this.videoPlayers.forEach((player) => player.isActive = false);
     });
   }
 
   private handleSlideChange(newIndex: number) {
     this.currentSlide = newIndex;
     this.videoPlayers.forEach((player, index) => {
-      if (index === newIndex) {
-        player.playVideo();
-      } else {
-        player.pauseVideo();
-      }
+      player.isActive = index === newIndex;
     });
     this.activeIndex = newIndex;
   }
 
-  // Публічні методи для керування слайдером
   goToSlide(index: number) {
     this.splide?.go(index);
   }
