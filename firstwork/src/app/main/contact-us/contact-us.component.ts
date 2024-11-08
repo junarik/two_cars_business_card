@@ -54,7 +54,6 @@ export class ContactUsComponent {
     phoneNumber: new FormControl('', {
       validators: [
         Validators.required,
-        Validators.pattern('^\\+380\\d{9}$')
       ],
       updateOn: 'blur'
     })

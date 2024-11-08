@@ -36,10 +36,6 @@
                 *ngIf="phoneControl && phoneControl.errors?.['required'] && (phoneControl.touched || phoneControl.dirty)">
                 Введіть номер телефону
             </div>
-            <div class="text-red-500" [@errorAnimation]
-                *ngIf="phoneControl && phoneControl.errors?.['pattern'] && (!phoneControl.touched || phoneControl.dirty)">
-                Введіть валідний номер телефону (Наприклад: +380689999999)
-            </div>
 
             <!-- Submit button  -->
             <div class="mx-auto">
@@ -116,6 +112,19 @@
                 </div>
             </div>
         </div>
+        }
+        <!-- When ticket is being sent  -->
+        @if (ticketStatus == 'PENDING') {
+        <div class="flex items-center flex-col gap-4">
+
+            <div class="inline-block h-20 w-20 animate-spin rounded-full border-4 border-solid border-current border-e-transparent align-[-0.125em] text-surface motion-reduce:animate-[spin_1.5s_linear_infinite] dark:text-[#3ef8f5]"
+                role="status">
+                <span
+                    class="!absolute!-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"></span>
+            </div>
+            <span class="text-white text-4xl">Надсилаємо вашу заявку...</span>
+        </div>
+
         }
     </div>
 </section>
