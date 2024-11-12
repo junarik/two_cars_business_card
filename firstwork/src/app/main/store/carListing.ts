@@ -6,7 +6,7 @@ export const carListing: Car[] = [
     mileage: "58,000 км",
     transmission: "Автомат",
     fuelType: "Бензин 2.0",
-    price: 22500,
+    price: 17800,
     imageUrl: 'https://i.imgur.com/6lYjLZ9.jpeg'
   },
   {
@@ -14,7 +14,7 @@ export const carListing: Car[] = [
     mileage: "140,000 км",
     transmission: "Автомат",
     fuelType: "Бензин 2.0",
-    price: 12800,
+    price: 9950,
     imageUrl: 'https://i.imgur.com/l6KnQ4B.jpeg'
   },
   {
@@ -22,7 +22,7 @@ export const carListing: Car[] = [
     mileage: "44,073 mi",
     transmission: "Автомат",
     fuelType: "Бензин 4.6",
-    price: 10500,
+    price: 9300,
     imageUrl: 'https://i.imgur.com/btkLxmb.jpeg'
   },
   {
@@ -30,7 +30,7 @@ export const carListing: Car[] = [
     mileage: "110,000 км",
     transmission: "Автомат",
     fuelType: "Бензин 2.0",
-    price: 12500,
+    price: 9400,
     imageUrl: 'https://i.imgur.com/4fYvv7o.jpeg'
   },
   {
@@ -46,7 +46,7 @@ export const carListing: Car[] = [
     mileage: "117,000 км",
     transmission: "Автомат",
     fuelType: "Дизель 2.0",
-    price: 8000,
+    price: 7400,
     imageUrl: 'https://i.imgur.com/TMutEKj.jpeg'
   },
   {
@@ -106,7 +106,7 @@ export const carListing: Car[] = [
     imageUrl: 'https://i.imgur.com/LadNjzQ.jpeg'
   },
   {
-    title: "Renault Megane 1.9 dCi Avantage",
+    title: "Renault Megane 1.9 dCi Avantage 2011",
     mileage: "195,000 км",
     transmission: "Механіка",
     fuelType: "Дизель 1.9",
@@ -118,7 +118,7 @@ export const carListing: Car[] = [
     mileage: "75,000 км",
     transmission: "Автомат",
     fuelType: "Дизель 2.2",
-    price: 15000,
+    price: 12900,
     imageUrl: 'https://i.imgur.com/ddv5SkE.jpeg'
   },
   {
@@ -126,7 +126,7 @@ export const carListing: Car[] = [
     mileage: "100,000 км",
     transmission: "Автомат",
     fuelType: "Бензин 1.6",
-    price: 7200,
+    price: 6600,
     imageUrl: 'https://i.imgur.com/y6xDjYF.jpeg'
   },
   {
@@ -134,15 +134,15 @@ export const carListing: Car[] = [
     mileage: "65,000 км",
     transmission: "Механіка",
     fuelType: "Бензин 1.2",
-    price: 10000,
+    price: 8800,
     imageUrl: 'https://i.imgur.com/87XHJtq.jpeg'
   },
   {
-    title: "Volkswagen Tiguan 2.0 TDI Sport & Style 4Motion 2010",
+    title: "Volkswagen Tiguan 2.0 TDI Sport & Style 4Motion 2011",
     mileage: "223,280 км",
     transmission: "Дуплекс",
     fuelType: "Дизель 2.0",
-    price: 9200,
+    price: 8460,
     imageUrl: 'https://i.imgur.com/rXIipGt.jpeg'
   }
 ];
