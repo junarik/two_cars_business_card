@@ -12,7 +12,7 @@
             <div class="w-6/12 h-[400px] mb-6">
               <app-you-tube-media-player [src]="videoSources[$index]" [isActive]="$index === activeIndex"></app-you-tube-media-player>
             </div>
-            <span class="font-bold text-2xl text-white">{{videoName[$index]}}</span>
+            <span class="font-bold text-2xl text-white">{{videoNames[$index]}}</span>
           </li>
           } @empty { Поки що немає жодного відгуку }
         </ul>
