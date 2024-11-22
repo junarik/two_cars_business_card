@@ -9,6 +9,7 @@ import { Car } from './models/car';
 
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { carServices } from './store/carServices';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,6 +32,7 @@ export class MainComponent implements OnInit, AfterViewInit {
   }
 
   carListing: Car[] = carListing;
+  carServices: string[] = carServices;
 
   displayedItems: Car[] = [];
   private itemsPerClick: number = 3;
