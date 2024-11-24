@@ -10,8 +10,7 @@
             Залиште свої контактні дані, і ми безкоштовно підберемо авто під ваші вимоги та бюджет
         </h4>
 
-        <form class="flex flex-col w-full sm:w-2/3 md:w-[40vw] xl:w-2/5" [formGroup]="contactUsForm"
-            (ngSubmit)="onSubmit()">
+        <form class="flex flex-col w-full sm:w-2/3 md:w-[40vw] xl:w-2/5" [formGroup]="contactUsForm">
             <!-- Name field  -->
             <label class="text-white" for="name">Ім'я</label>
             <input
@@ -36,16 +35,15 @@
                 *ngIf="phoneControl && phoneControl.errors?.['required'] && (phoneControl.touched || phoneControl.dirty)">
                 Введіть номер телефону
             </div>
-
-            <!-- Submit button  -->
-            <div class="mx-auto">
-                <button
-                    class="text-[#3EF8F5] sm:hover:text-white font-semibold w-40 sm:w-48 md:w-56 bg mt-4 h-10 border-2 border-cyan-500 rounded-full cursor-pointer sm:hover:bg-cyan-500 transition-colors"
-                    type="submit" [disabled]="!contactUsForm.valid">
-                    Відправити
-                </button>
-            </div>
         </form>
+
+        <!-- Submit button -->
+        <div class="mx-auto">
+            <button (click)="onTouchStart($event)"
+                class="text-[#3EF8F5] font-semibold w-40 sm:w-48 md:w-56 bg mt-4 h-10 border-2 border-cyan-500 rounded-full cursor-pointer">
+                Відправити
+            </button>
+        </div>
         }
 
         <!-- When ticket sent successfuly -->
@@ -115,14 +113,13 @@
         }
         <!-- When ticket is being sent  -->
         @if (ticketStatus == 'PENDING') {
-        <div class="flex items-center flex-col gap-4">
-
+        <div class="flex items-center justify-center flex-col gap-4">
             <div class="inline-block h-20 w-20 animate-spin rounded-full border-4 border-solid border-current border-e-transparent align-[-0.125em] text-surface motion-reduce:animate-[spin_1.5s_linear_infinite] dark:text-[#3ef8f5]"
                 role="status">
                 <span
                     class="!absolute!-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"></span>
             </div>
-            <span class="text-white text-4xl">Надсилаємо вашу заявку...</span>
+            <span class="text-white text-center text-4xl">Надсилаємо вашу заявку...</span>
         </div>
 
         }
