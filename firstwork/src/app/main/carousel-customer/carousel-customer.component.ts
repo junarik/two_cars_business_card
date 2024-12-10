@@ -30,7 +30,8 @@ export class CarouselCustomerComponent implements OnInit, OnDestroy, AfterViewIn
     'LgIgY0aEsbM',
     'S339fh0Oavk',
     '1T9DFycf6R4',
-    'xaXhqrVJ1YQ'
+    'xaXhqrVJ1YQ',
+    'vDL0JvBmhVU'
   ];
 
   videoNames: string[] = [
@@ -38,7 +39,8 @@ export class CarouselCustomerComponent implements OnInit, OnDestroy, AfterViewIn
     'Ford Focus 2010',
     'Ford Focus 2010',
     'Audi Q8 Quattro 2019',
-    'Hyundai Kona 2019'
+    'Hyundai Kona 2019',
+    'Audi A6 3.0TDI (Quattro)'
   ];
 
   ngOnInit() {
