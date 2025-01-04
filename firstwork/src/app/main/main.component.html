@@ -9,13 +9,13 @@
 <app-carousel-customer></app-carousel-customer>
 <div class="bg-[#272727]">
   <div id="purchased-cars-href"></div>
-  <app-purchased-cars-grid [displayedItems]="displayedItems" (clickButton)="handleButtonClick()"
+  <app-purchased-cars-grid [displayedItems]="displayedItems" [carServices]="carServices" (clickButton)="handleButtonClick()"
     [showLoadMore]="displayedItems.length < carListing.length"></app-purchased-cars-grid>
 </div>
 
 <div class="bg-[#000000]">
   <div id="services-overview-href"></div>
-  <app-services-overview></app-services-overview>
+  <app-services-overview [carServices]="carServices"></app-services-overview>
   <div id="contact-us-href"></div>
   <app-contact-us [ticketStatus]="ticketStatus" (formSubmitEvent)="submitTicketToCrm($event)"></app-contact-us>
 </div>

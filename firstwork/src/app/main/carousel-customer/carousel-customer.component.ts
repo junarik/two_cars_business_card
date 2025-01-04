@@ -26,19 +26,21 @@ export class CarouselCustomerComponent implements OnInit, OnDestroy, AfterViewIn
 
   // Use YouTube video IDs here
   videoSources: string[] = [
-    'oback-3tWeg', // Add actual YouTube video IDs
-    'LgIgY0aEsbM',
-    'S339fh0Oavk',
+    'vDL0JvBmhVU', // Add actual YouTube video IDs
+    'xaXhqrVJ1YQ',
     '1T9DFycf6R4',
-    'xaXhqrVJ1YQ'
+    'S339fh0Oavk',
+    'LgIgY0aEsbM',
+    'oback-3tWeg',
   ];
 
   videoNames: string[] = [
-    'Scoda Superb 2011', // Add actual YouTube video IDs
-    'Ford Focus 2010',
-    'Ford Focus 2010',
+    'Audi A6 3.0TDI (Quattro)',// Add actual YouTube video IDs
+    'Hyundai Kona 2019',
     'Audi Q8 Quattro 2019',
-    'Hyundai Kona 2019'
+    'Ford Focus 2010',
+    'Ford Focus 2010',
+    'Scoda Superb 2011',
   ];
 
   ngOnInit() {

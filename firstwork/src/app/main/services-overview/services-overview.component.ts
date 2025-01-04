@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-services-overview',
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './services-overview.component.css'
 })
 export class ServicesOverviewComponent {
-
+  @Input() carServices!: string[];
 }

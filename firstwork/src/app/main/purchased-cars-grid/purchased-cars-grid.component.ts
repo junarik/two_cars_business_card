@@ -35,11 +35,11 @@ import { Car } from '../models/car';
 export class PurchasedCarsGridComponent implements OnInit {
   @Input() showLoadMore!: boolean;
   @Input() displayedItems!: Car[];
+  @Input() carServices!: string[];
   @Output() clickButton = new EventEmitter<void>();
   isLessXl: boolean = false;
 
-  ngOnInit()
-  {
+  ngOnInit() {
     this.checkScreenSize();
   }
 
@@ -48,8 +48,7 @@ export class PurchasedCarsGridComponent implements OnInit {
     this.checkScreenSize();
   }
 
-  private checkScreenSize()
-  {
+  private checkScreenSize() {
     this.isLessXl = window.innerWidth < 1280;
   }
 
